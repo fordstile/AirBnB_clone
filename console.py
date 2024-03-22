@@ -129,64 +129,64 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, arg):
-        """Prints all string representation of all instances."""
-        argl = parse(arg)
-        if len(argl) > 0 and argl[0] not in self.__classes:
-            print("** class doesn't exist **")
-        else:
-            objl = []
-            for obj in storage.all().values():
-                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
-                    objl.append(obj.to_dict())
-                elif len(argl) == 0:
-                    objl.append(obj.to_dict())
-            print([str(obj) for obj in objl])
-
-    def do_count(self, arg):
-        """Counts the instances of a class."""
-        argl = parse(arg)
-        count = 0
+    """Prints all string representation of all instances."""
+    argl = parse(arg)
+    if len(argl) > 0 and argl[0] not in self.__classes:
+        print("** class doesn't exist **")
+    else:
+        obj_list = []
         for obj in storage.all().values():
-            if argl[0] == obj.__class__.__name__:
-                count += 1
-        print(count)
+            if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                obj_list.append(obj.to_dict())
+            elif len(argl) == 0:
+                obj_list.append(obj.to_dict())
+        print([str(obj) for obj in obj_list])
 
-    def do_update(self, arg):
-        """Updates the instance by adding or updating attribute."""
-        argl = parse(arg)
-        objdict = storage.all()
-        if len(argl) == 0:
-            print("** class name missing **")
-            return False
-        if argl[0] not in self.__classes:
-            print("** class doesn't exist **")
-            return False
-        if len(argl) == 1:
-            print("** instance id missing **")
-            return False
-        if "{}.{}".format(argl[0], argl[1]) not in objdict:
-            print("** no instance found **")
-            return False
-        if len(argl) == 2:
-            print("** attribute name missing **")
-            return False
-        if len(argl) == 3:
-            print("** value missing **")
-            return False
-        key = "{}.{}".format(argl[0], argl[1])
-        obj = objdict[key]
-        if len(argl) == 4:
-            value = argl[3]
-            try:
-                value = json.loads(value)
-            except json.JSONDecodeError:
-                pass
-            setattr(obj, argl[2], value)
-        elif isinstance(json.loads(argl[2]), dict):
-            attribute_dict = json.loads(argl[2])
-            for k, v in attribute_dict.items():
-                setattr(obj, k, v)
-        obj.save()
+def do_count(self, arg):
+    """Counts the instances of a class."""
+    argl = parse(arg)
+    count = 0
+    for obj in storage.all().values():
+        if argl[0] == obj.__class__.__name__:
+            count += 1
+    print(count)
+
+def do_update(self, arg):
+    """Updates the instance by adding or updating attribute."""
+    argl = parse(arg)
+    objdict = storage.all()
+    if len(argl) == 0:
+        print("** class name missing **")
+        return False
+    if argl[0] not in self.__classes:
+        print("** class doesn't exist **")
+        return False
+    if len(argl) == 1:
+        print("** instance id missing **")
+        return False
+    if "{}.{}".format(argl[0], argl[1]) not in objdict:
+        print("** no instance found **")
+        return False
+    if len(argl) == 2:
+        print("** attribute name missing **")
+        return False
+    if len(argl) == 3:
+        print("** value missing **")
+        return False
+    key = "{}.{}".format(argl[0], argl[1])
+    obj = objdict[key]
+    if len(argl) == 4:
+        value = argl[3]
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError:
+            pass
+        setattr(obj, argl[2], value)
+    elif isinstance(json.loads(argl[2]), dict):
+        attribute_dict = json.loads(argl[2])
+        for k, v in attribute_dict.items():
+            setattr(obj, k, v)
+    obj.save()
 
 
 if __name__ == "__main__":
