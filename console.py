@@ -129,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, arg):
-    """Prints all string representation of all instances."""
+        """Prints all string representation of all instances."""
         argl = parse(arg)
         if len(argl) > 0 and argl[0] not in self.__classes:
             print("** class doesn't exist **")
