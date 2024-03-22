@@ -98,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, arg):
-        """Display the string representation of a class instance of a given id."""
+        """Display string representation of a class instance of a given id."""
         argl = parse(arg)
         objdict = storage.all()
         if len(argl) == 0:
@@ -130,17 +130,18 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
     """Prints all string representation of all instances."""
-    argl = parse(arg)
-    if len(argl) > 0 and argl[0] not in self.__classes:
-        print("** class doesn't exist **")
-    else:
-        obj_list = []
-        for obj in storage.all().values():
-            if len(argl) > 0 and argl[0] == obj.__class__.__name__:
-                obj_list.append(obj.to_dict())
-            elif len(argl) == 0:
-                obj_list.append(obj.to_dict())
-        print([str(obj) for obj in obj_list])
+        argl = parse(arg)
+        if len(argl) > 0 and argl[0] not in self.__classes:
+            print("** class doesn't exist **")
+        else:
+            obj_list = []
+            for obj in storage.all().values():
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    obj_list.append(obj.to_dict())
+                elif len(argl) == 0:
+                    obj_list.append(obj.to_dict())
+            print([str(obj) for obj in obj_list])
+
 
 def do_count(self, arg):
     """Counts the instances of a class."""
@@ -150,6 +151,7 @@ def do_count(self, arg):
         if argl[0] == obj.__class__.__name__:
             count += 1
     print(count)
+
 
 def do_update(self, arg):
     """Updates the instance by adding or updating attribute."""
