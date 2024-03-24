@@ -1,4 +1,4 @@
-/* Extra small devices (phones, 600px and down) */
+/* Styles for header on extra small devices (phones, 600px and down) */
 /* @media only screen and (max-width: 600px) */
 header {
   z-index: 4;
@@ -14,10 +14,10 @@ header {
   text-align: left;
 }
 /*****************************************************************/
-/* rotate burguer
+/* Rotate burger icon */
 /*****************************************************************/
 
-.main_nav_burguer {
+.main_nav_burger {
   margin: .6rem 0 0 1rem;
   display: inline-block;
   font-size: 2rem;
@@ -27,7 +27,7 @@ header {
   transition: .2s ease-in-out;
 }
 
-.main_nav_burguer:hover {
+.main_nav_burger:hover {
   cursor: pointer;
   transform: rotate(0deg);
   color: silver;
@@ -41,7 +41,7 @@ header {
 }
 
 /*****************************************************************/
-/* popup first level menu
+/* Popup first level menu */
 /*****************************************************************/
 .nav_bar_level1 {
   width: 0%;
@@ -50,25 +50,25 @@ header {
   transition: .2s ease-in-out;
   background-color: aliceblue;
 }
-/* hide checkbox */
+/* Hide checkbox */
 input {
   display: none;
 }
-/* hide second level */
+/* Hide second level */
 .nav_bar_level1 li ul {
   display: none;
 }
 
-/* hide first level */
+/* Hide first level */
 .nav_bar_level1 li{
   display: none;
 }
 
-/* display first level */
+/* Display first level on checkbox check */
 #main_check:checked ~ * .nav_bar_level1 {
   display: block;
 }
-/* display first level title*/
+/* Display first level title */
 #main_check:checked ~ * .nav_bar_level1 li {
   display: block;
   font-size: 1.3rem;
@@ -77,7 +77,7 @@ input {
   font-weight: bold;
   transition: .5s ease-in-out;
 }
-/* hover link menu */
+/* Hover effect for menu links */
 .nav_bar_level1 li label span:hover,
 ul li span:hover
  {
@@ -88,7 +88,7 @@ ul li span:hover
   color: #FAFAFA;
   cursor: pointer;
 }
-/* display first level background */
+/* Display first level background */
 #main_check:checked ~ * .nav_bar_level1
 {
   display: block;
@@ -100,28 +100,27 @@ ul li span:hover
   transition: 1s ease-in-out;
 }
 
-/*display second level */
+/* Display second level */
 #second_check:checked  + ul{
   display: block;
 }
 #third_check:checked  + ul{
   display: block;
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
-}
-/* Medium devices (landscape tablets, 768px and up) */
+/* Styles for medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  /* Adjust background position for header */
   header {
       background-position: left;
       background-position-x: 1rem;
   }
+  /* Hide mobile navigation */
   .mobile_nav {
     display: none;
   }
 }
-/* Large devices (laptops/desktops, 992px and up) */
+/* Styles for large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
 }
+

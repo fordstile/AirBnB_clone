@@ -3,16 +3,16 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
 }
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
 }
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
 }
+
 .places {
   display: flex;
   flex-wrap: wrap;
@@ -46,6 +46,7 @@
   text-align: center;
   flex-grow: 1;
 }
+
 /* ************************************************** */
 /* article information */
 /* ************************************************** */
@@ -70,6 +71,7 @@
     margin-bottom: 5px;
     transition: 0.2s ease-in-out;
 }
+
 /* ******************************************/
 /* ARIA
 /* ******************************************/
@@ -87,6 +89,7 @@ article:focus {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: 0.2s ease-in-out;
 }
+
 /* ******************************************/
 /* information box with icons */
 /* ******************************************/
@@ -100,9 +103,11 @@ article:focus {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 .user {
   padding: 20px 0 5px;
 }
+
 .user b, p {
   margin: 0;
   padding: 0;
@@ -137,6 +142,7 @@ article:focus {
 /*******************************************/
 /* more information */
 /*******************************************/
+
 .places .amenities,
 .places .reviews {
   margin-top: 40px;
@@ -164,9 +170,11 @@ article:focus {
 .places .reviews p {
   font-size: 12px;
 }
+
 /*******************************************/
 /* amenities icons */
 /*******************************************/
+
 .places .amenities ul li{
   display: flex;
   flex-direction: row;
@@ -174,14 +182,16 @@ article:focus {
   align-content: center;
   margin-bottom: 10px;
   align-items: end;
-  }
+}
 
 .places_amenities_pet_friendly {
   background-image: url(../images/icon_pets.png);
 }
+
 .places_amenities_tv {
   background-image: url(../images/icon_tv.png);
 }
+
 .places_amenities_wifi {
   background-image: url(../images/icon_wifi.png);
 }
